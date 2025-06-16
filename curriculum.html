@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículum | Josep Vicent Mestre Llobell</title>
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        main {
+            max-width: 1200px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+        h2 {
+            color: var(--accent-color);
+            margin-bottom: 0.5em;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.3em;
+        }
+        ul {
+            padding-left: 1.2em;
+        }
+        .contenido ul li {
+            margin-bottom: 0.5em;
+            line-height: 1.5;
+        }
+        .contenido p {
+            margin-bottom: 0.7em;
+        }
+        .columna {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5em;
+        }
+    </style>
+</head>
+<body>
+<header class="sticky">
+    <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Logo del sitio">
+        <span>Josep Vicent Mestre Llobell</span>
+    </a>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+</header>
+
+<main>
+    <div style="display: flex; flex-wrap: wrap; gap: 2em;">
+        <div class="columna">
+            <section class="contenido">
+                <div>
+                    <h2>Información de contacto</h2>
+                    <p><strong>Nombre:</strong> Josep Vicent Mestre Llobell</p>
+                    <p><strong>Email:</strong> jmestrellobell@gmail.com</p>
+                    <p><strong>Teléfono:</strong> 649 428 190</p>
+                </div>
+            </section>
+            <section class="contenido">
+                <div>
+                    <h2>Estudios</h2>
+                    <p>IES La mar - Título en Sistemas Microinformáticos y Redes</p>
+                </div>
+            </section>
+            <section class="contenido">
+                <div>
+                    <h2>Idiomas</h2>
+                    <ul>
+                        <li>Castellano (Nativo)</li>
+                        <li>Valenciano (Nativo)</li>
+                        <li>Inglés (Nivel medio)</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <div class="columna">
+            <section class="contenido">
+                <div>
+                    <h2>Experiencia</h2>
+                    <p><strong>TbN Servicios Informáticos</strong> – Becario<br><em>Marzo de 2023 - Junio de 2023 (4 meses)</em><br><small>Teulada, Comunidad Valenciana / Comunitat Valenciana, España</small></p>
+                    <ul>
+                        <li>Soporte técnico a usuarios y mantenimiento de equipos informáticos.</li>
+                        <li>Instalación y configuración de software y hardware.</li>
+                        <li>Resolución de incidencias básicas y gestión de redes locales.</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="contenido">
+                <div>
+                    <h2>Habilidades</h2>
+                    <ul>
+                        <li>Resolutivo</li>
+                        <li>Rápida adaptación</li>
+                        <li>Buen trabajo en equipo</li>
+                        <li>Responsable</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 Josep Vicent Mestre Llobell</p>
+</footer>
+</body>
+</html>
