@@ -1,12 +1,12 @@
-name: Minify CSS and Deploy to GitHub Pages
+name: Minify CSS on main
 
 on:
   push:
     branches:
-      - main # Cambia esto si tu rama principal es diferente
+      - main
 
 jobs:
-  build:
+  minify:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,14 +24,13 @@ jobs:
       - name: Minify CSS
         run: cssnano css/style.css css/style.min.css
 
-      # Opcional: reemplaza el antiguo style.css por el minificado para producción
-      - name: Replace CSS for deployment
+      - name: Replace CSS with minified version
         run: mv css/style.min.css css/style.css
 
-      # Publica cambios en GitHub Pages (usando la rama gh-pages)
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
-          publish_branch: gh-pages
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add css/style.css
+          git diff --cached --quiet || git commit -m "Minify CSS [auto]"
+          git push
