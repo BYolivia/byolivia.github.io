@@ -1,0 +1,37 @@
+name: Minify CSS and Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Cambia esto si tu rama principal es diferente
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install cssnano-cli
+        run: npm install -g cssnano-cli
+
+      - name: Minify CSS
+        run: cssnano css/style.css css/style.min.css
+
+      # Opcional: reemplaza el antiguo style.css por el minificado para producción
+      - name: Replace CSS for deployment
+        run: mv css/style.min.css css/style.css
+
+      # Publica cambios en GitHub Pages (usando la rama gh-pages)
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          publish_branch: gh-pages
