@@ -1,4 +1,4 @@
-name: Minify CSS and Deploy to GitHub Pages
+name: Minify CSS for GitHub Pages
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -14,21 +14,15 @@ jobs:
 
       - name: Minify CSS
         run: |
-          mkdir -p dist/css
-          npx clean-css-cli -o dist/css/style.min.css css/style.css
-          cp -r img dist/
-          cp *.html dist/
-          cp sitemap.xml dist/
-
-      - name: Replace CSS reference in HTML
-        run: |
-          for file in dist/*.html; do
+          npx clean-css-cli -o css/style.min.css css/style.css
+          for file in *.html; do
             sed -i 's|css/style.css|css/style.min.css|g' "$file"
           done
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-
+      - name: Commit and push minified files
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add css/style.min.css *.html
+          git commit -m "Minify CSS for production" || echo "No changes to commit"
+          git push
