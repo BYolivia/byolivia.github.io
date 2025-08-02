@@ -96,8 +96,11 @@ nav a:hover {
 }
 
 .contenido img {
-    max-width: 100%;
+    max-width: 450px;
+    width: 100%;
     height: auto;
+    flex: 1;
+    border-radius: 8px;
     display: block;
     /* Lazy loading para imágenes */
     loading: lazy;
