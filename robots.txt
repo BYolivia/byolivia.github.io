@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://byolivia.github.io/sitemap.xml
+
